@@ -17,13 +17,13 @@ app.use(
 );
 app.use(express.json());
 
-const url = "mongodb+srv://yadharth:chitra@cluster0.ajdir.mongodb.net/azn?retryWrites=true&w=majority"
+const url = "mongodb+srv://yadharth:chitra@cluster0.xa74m.mongodb.net/fk?retryWrites=true&w=majority"
 
 async function fkdata() {
     const client = new MongoClient(url);
     var browser = await puppeteer.launch();
     var page = await browser.newPage();
-    await page.goto("https://www.amazon.in/s?k=mens+casual+shirt+shorts+trousers&rh=p_85%3A10440599031%2Cpct-off-with-tax%3A50-&s=apparels&hidden-keywords=-belt-brace-jewellery-accessory-accessorie-shoe-sock-women-girl-boy-kid-formal&pf_rd_i=7459781031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=daf158dd-7003-4b50-bf0f-c2b37cfcc607&pf_rd_r=3QGJKQ6A2EEPKQGBV7C3&pf_rd_s=merchandised-search-7&qid=1630044462&ref=sr_pg_1");
+    await page.goto("https://www.flipkart.com/search?q=shoes&sid=osp%2Ccil%2C1cu&as=on&as-show=on&otracker=AS_QueryStore_OrganicAutoSuggest_1_5_na_na_na&otracker1=AS_QueryStore_OrganicAutoSuggest_1_5_na_na_na&as-pos=1&as-type=RECENT&suggestionId=shoes%7CMen%27s+Sports+Shoes&requestId=d43152c1-dc12-4888-a439-2f9eb19ca15c&as-searchtext=shoes&page=2");
 
     //getting price
     //price
@@ -194,7 +194,7 @@ async function fkdata() {
 
     await browser.close();
 }
-amazondata().catch(console.error);
+fkdata().catch(console.error);
 
 async function list(client, datas) {
     await client.db("fk").collection("fk").deleteMany({});
